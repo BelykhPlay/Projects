@@ -1,0 +1,4 @@
+Мой тестовый текст, для того, что бы проверять и ловить по регулярному выражению email-ы
+Допустим тут будет мой емейл: mymail@gmail.com, а тут будет эмейл моего друга: myfriend@mail.ru.
+Еще, предположу, что тут будет email моей мамы: i_love_my_mam@yandex.ru и моего папы: i_love_my_father_to@rambler.ru
+Мыло брата и сестры: brother-mail@mail.vv.si, sister-mail@mail.vv.si
