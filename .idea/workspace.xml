@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1a7fb19-c1a6-401b-a6b2-ca9c548a8db3" name="Changes" comment="completed completely">
-      <change afterPath="$PROJECT_DIR$/src/Task12/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/Logic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/Tree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TreeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Logic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Tree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +120,7 @@
       <workItem from="1671041732369" duration="5757000" />
       <workItem from="1671051189643" duration="83000" />
       <workItem from="1671100472670" duration="7510000" />
-      <workItem from="1671113067237" duration="6305000" />
+      <workItem from="1671113067237" duration="15223000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1670093918155</created>
@@ -217,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670095076527</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="completed completely">
+      <created>1671130714126</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1671130714127</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +229,11 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="03e22467-2e59-4039-82c0-955f501abc0a">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -245,6 +253,11 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="03e22467-2e59-4039-82c0-955f501abc0a" value="TOOL_WINDOW" />
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
@@ -255,9 +268,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Test/Logic.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/src/Test/Tree.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Test/Test.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

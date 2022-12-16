@@ -123,21 +123,28 @@ public class Logic {
 
     private static int solvePositionParent(TreeNode parentNode) {
         int positionParent = parentNode.getChildren().size() - 1;
+        int positionFirstChild = parentNode.getChildren().get(0).getPosition();
 
-        boolean isFirstChild = true;
+        if(parentNode.getChildren().size() == 1) {
+            return positionFirstChild;
+        }
+
+//        boolean isFirstChild = true;
         for (TreeNode child : parentNode.getChildren()) {
-            if (isFirstChild) {
-                positionParent += child.getPosition();
-                isFirstChild = false;
-
-            }
+//            if (isFirstChild) {
+//                positionParent += child.getPosition();
+//                isFirstChild = false;
+//
+//            }
 
             positionParent += child.getName().length();
         }
 
-        positionParent = positionParent / 2;
-
-        return positionParent;
+        if (positionParent % 2 == 0) {
+            return positionParent / 2 - 1 +  positionFirstChild;
+        } else {
+            return positionParent / 2 + positionFirstChild;
+        }
     }
 
 
@@ -146,7 +153,7 @@ public class Logic {
         rootNode.setLevel(level);
         for (TreeNode e : rootNode.getChildren()) {
             if (e.getChildren().isEmpty()) {
-                maxLevel = Math.max(level+1, maxLevel);
+                maxLevel = Math.max(level + 1, maxLevel);
                 e.setLevel(level + 1);
 
             } else {
@@ -165,16 +172,17 @@ public class Logic {
 
 
     }
+
     private static void fillingListWithElements(TreeNode rootNode, boolean isFirst) {
         List<TreeNode> storage;
 
-        if(isFirst) {
+        if (isFirst) {
             storage = infoAboutEachLevels.get(rootNode.getLevel());
             storage.add(rootNode);
         }
 
-        for (TreeNode e: rootNode.getChildren()) {
-            if(e.getChildren().isEmpty()) {
+        for (TreeNode e : rootNode.getChildren()) {
+            if (e.getChildren().isEmpty()) {
                 storage = infoAboutEachLevels.get(e.getLevel());
                 storage.add(e);
 
