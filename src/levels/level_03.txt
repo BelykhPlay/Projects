@@ -1,0 +1,11 @@
+g y b
+2 5 2 6 5 4
+e e e e w w w w w
+e e e w w f f f w
+e e w w f g y f G
+e w w f f f f f w
+w w f f f f f f w
+w f f f b f f f w
+w f f f f f f f w
+w f f f f f f f w
+w w Y w w B w w w

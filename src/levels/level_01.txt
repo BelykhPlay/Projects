@@ -1,0 +1,11 @@
+g b
+3 3 5 4
+e e e e e e e e e
+e e e e e e e e e
+e e w w G w w e e
+e e w g f f w e e
+e e w f f f B e e
+e e w w b f w e e
+e e e w w w w e e
+e e e e e e e e e
+e e e e e e e e e
