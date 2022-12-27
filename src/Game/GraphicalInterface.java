@@ -21,6 +21,7 @@ public class GraphicalInterface extends JFrame {
     private JButton restartButton;
 
     private JList list1;
+
     private JPanel panelWithJTable;
 
 
