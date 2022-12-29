@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -32,64 +33,65 @@ public class GraphicalInterface extends JFrame {
     public GraphicalInterface() {
         // JFrame
         setTitle("Кугейм");
-
         setSize(400, 550);
         setLocationRelativeTo(null);
         setResizable(false);
-
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         setContentPane(rootPanel);
 
         //Listeners
         createActionListeners();
         createMouseListeners();
-
+        createKeyListeners();
     }
 
 
     private void createActionListeners() {
         // Движение игровых элементов
         downButton.addActionListener(action -> {
-            if(selectedGameObject != null) {
+            if (selectedGameObject != null) {
                 String[][] modifiedLevel = Movement.downwardMovement(playingField.getLevel(), selectedGameObject);
 
                 playingField.setLevel(modifiedLevel);
                 playTable.setModel(playingField.getGraphicalLevelView());
 
+                restartSelectedGameObject();
                 checkingOfCompletionOfGame();
             }
         });
 
         upButton.addActionListener(action -> {
-            if(selectedGameObject != null) {
+            if (selectedGameObject != null) {
                 String[][] modifiedLevel = Movement.upwardMovement(playingField.getLevel(), selectedGameObject);
 
                 playingField.setLevel(modifiedLevel);
                 playTable.setModel(playingField.getGraphicalLevelView());
 
+                restartSelectedGameObject();
                 checkingOfCompletionOfGame();
             }
         });
 
         rightButton.addActionListener(action -> {
-            if(selectedGameObject != null) {
+            if (selectedGameObject != null) {
                 String[][] modifiedLevel = Movement.movementToTheRight(playingField.getLevel(), selectedGameObject);
 
                 playingField.setLevel(modifiedLevel);
                 playTable.setModel(playingField.getGraphicalLevelView());
 
+                restartSelectedGameObject();
                 checkingOfCompletionOfGame();
             }
         });
 
         leftButton.addActionListener(action -> {
-            if(selectedGameObject != null) {
+            if (selectedGameObject != null) {
                 String[][] modifiedLevel = Movement.movementToTheLeft(playingField.getLevel(), selectedGameObject);
 
                 playingField.setLevel(modifiedLevel);
                 playTable.setModel(playingField.getGraphicalLevelView());
 
+                restartSelectedGameObject();
                 checkingOfCompletionOfGame();
             }
         });
@@ -134,7 +136,7 @@ public class GraphicalInterface extends JFrame {
         playTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 1) {
+                if (e.getClickCount() > 0) {
                     int row = playTable.rowAtPoint(e.getPoint());
                     int column = playTable.columnAtPoint(e.getPoint());
 
@@ -142,6 +144,55 @@ public class GraphicalInterface extends JFrame {
 
                     selectedGameObject = getGameObjectByName(name);
                 }
+            }
+        });
+    }
+
+    private void createKeyListeners() {
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
+            @Override
+            public boolean dispatchKeyEvent(KeyEvent e) {
+                if (e.getID() == KeyEvent.KEY_PRESSED && selectedGameObject != null) {
+                    if (e.getKeyCode() == KeyEvent.VK_W) {
+                        String[][] modifiedLevel = Movement.upwardMovement(playingField.getLevel(), selectedGameObject);
+
+                        playingField.setLevel(modifiedLevel);
+                        playTable.setModel(playingField.getGraphicalLevelView());
+
+                        restartSelectedGameObject();
+                        checkingOfCompletionOfGame();
+
+                    } else if (e.getKeyCode() == KeyEvent.VK_S) {
+                        String[][] modifiedLevel = Movement.downwardMovement(playingField.getLevel(), selectedGameObject);
+
+                        playingField.setLevel(modifiedLevel);
+                        playTable.setModel(playingField.getGraphicalLevelView());
+
+                        restartSelectedGameObject();
+                        checkingOfCompletionOfGame();
+
+                    } else if (e.getKeyCode() == KeyEvent.VK_A) {
+                        String[][] modifiedLevel = Movement.movementToTheLeft(playingField.getLevel(), selectedGameObject);
+
+                        playingField.setLevel(modifiedLevel);
+                        playTable.setModel(playingField.getGraphicalLevelView());
+
+                        restartSelectedGameObject();
+                        checkingOfCompletionOfGame();
+
+                    } else if (e.getKeyCode() == KeyEvent.VK_D) {
+                        String[][] modifiedLevel = Movement.movementToTheRight(playingField.getLevel(), selectedGameObject);
+
+                        playingField.setLevel(modifiedLevel);
+                        playTable.setModel(playingField.getGraphicalLevelView());
+
+                        restartSelectedGameObject();
+                        checkingOfCompletionOfGame();
+
+                    }
+                }
+
+                return false;
             }
         });
     }
@@ -192,8 +243,14 @@ public class GraphicalInterface extends JFrame {
         return null;
     }
 
+    private void restartSelectedGameObject() {
+        if(selectedGameObject.isFinishedGame()) {
+            selectedGameObject = null;
+        }
+    }
+
     private void checkingOfCompletionOfGame() {
-        if(playingField.isEndGame()) {
+        if (playingField.isEndGame()) {
             JOptionPane.showMessageDialog(panelWithJTable, "Congratulation, you have completed the level!!!");
         }
     }

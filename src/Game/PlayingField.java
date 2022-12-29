@@ -34,6 +34,17 @@ public class PlayingField {
         return tableModel;
     }
 
+    public List<GameObject> getGameObjects() {
+        for (int i = 0; i < gameObjects.size(); i++) {
+            if(gameObjects.get(i).isFinishedGame()) {
+                gameObjects.remove(i);
+                i--;
+            }
+        }
+
+        return gameObjects;
+    }
+
     public void setLevel(String[][] level) {
         this.level = level;
     }
@@ -50,10 +61,6 @@ public class PlayingField {
 
     public String[][] getLevel() {
         return level.clone();
-    }
-
-    public List<GameObject> getGameObjects() {
-        return gameObjects;
     }
 
     public String getName() {
